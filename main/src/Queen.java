@@ -4,8 +4,8 @@ public class Queen extends Piece{
     }
 
     @Override
-    public int getValue() {
-        return 9;
+    public double getValue() {
+        return 9.5;
     }
 
     @Override

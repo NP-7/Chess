@@ -6,7 +6,7 @@ public class King extends Piece {
 
     @Override
     public int getValue() {
-        return 9999;
+        return Double.POSITIVE_INFINITY;
     }
 
     @Override

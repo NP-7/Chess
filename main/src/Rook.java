@@ -4,8 +4,8 @@ public class Rook extends Piece{
     }
 
     @Override
-    public int getValue() {
-        return 5;
+    public double getValue() {
+        return 5.3;
     }
 
     @Override

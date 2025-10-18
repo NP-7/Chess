@@ -60,7 +60,6 @@ public class Board {
 
 
         }
-        //for (int row = 8; row < 9; row++) {
         result = result + "  " + "A B C D E F G H\n";
 
 

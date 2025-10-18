@@ -4,8 +4,8 @@ public class Bishop extends Piece{
     }
 
     @Override
-    public int getValue() {
-        return 3;
+    public double getValue() {
+        return 3.35;
     }
 
     @Override

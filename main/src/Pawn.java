@@ -4,8 +4,8 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public int getValue() {
-        return 1;
+    public double getValue() {
+        return 1.05;
     }
 
     @Override

@@ -4,7 +4,7 @@ public class Knight extends Piece{
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return 3;
     }
 
