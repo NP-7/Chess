@@ -10,5 +10,5 @@ public abstract class Piece {
 
     public Color color;
 
-    abstract public int getValue();
+    abstract public double getValue();
 }

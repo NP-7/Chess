@@ -7,7 +7,12 @@ void main() {
     IO.println(String.format("Hello and welcome!"));
 
     int i = 5;
-    //var x = new King(Piece.Color.BLACK);
+
+
+//    var x = new King(Piece.Color.BLACK);
+//    System.out.println(x);
+
+
     var board = new Board();
 
     while(true) {
@@ -15,6 +20,7 @@ void main() {
 
         String from = IO.readln("Next move from: ");
         String to = IO.readln("Next move to: ");
-        board.move(from, to);
+        var movedPiece = board.move(from, to);
+        System.out.println("You moved the following : " + movedPiece);
     }
 }

@@ -5,7 +5,7 @@ public class King extends Piece {
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return Double.POSITIVE_INFINITY;
     }
 

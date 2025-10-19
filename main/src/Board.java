@@ -29,8 +29,10 @@ public class Board {
         }
     }
 
-    // E2   C4
-    public void move(String from, String to) {
+    /**
+     * @return the piece just moved
+     */
+    public Piece move(String from, String to) {
         int fromCol =  from.charAt(0) - 'A';
         int fromRow = 8 -(from.charAt(1) - '0');
 
@@ -39,12 +41,15 @@ public class Board {
 
         board[toRow][toCol] = board[fromRow][fromCol];
         board[fromRow][fromCol] = null;
+
+        return board[toRow][toCol];
     }
 
     @Override
     public String toString() {
         String result = "Next player : " + nextPlayer + "\n\n";
-
+        result += String.format("White Score : %1.2f \n", getScore(Piece.Color.WHITE));
+        result += String.format("Black Score : %1.2f \n\n", getScore(Piece.Color.BLACK));
         for (int row = 0; row < 8; row++) {
 
             result = result + (8-row) + " ";
@@ -64,5 +69,17 @@ public class Board {
 
 
         return result;
+    }
+
+    private double getScore(Piece.Color color){
+        double score = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(board[i][j] != null && board[i][j].color == color && !(board[i][j] instanceof King) ){
+                    score += board[i][j].getValue();
+                }
+            }
+        }
+        return score;
     }
 }
