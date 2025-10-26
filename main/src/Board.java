@@ -33,16 +33,32 @@ public class Board {
      * @return the piece just moved
      */
     public Piece move(String from, String to) {
-        int fromCol =  from.charAt(0) - 'A';
-        int fromRow = 8 -(from.charAt(1) - '0');
+        int fromCol = from.charAt(0) - 'A';
+        int fromRow = 8 - (from.charAt(1) - '0');
 
-        int toCol =  to.charAt(0) - 'A';
+        int toCol = to.charAt(0) - 'A';
         int toRow = 8 - (to.charAt(1) - '0');
 
-        board[toRow][toCol] = board[fromRow][fromCol];
+        var movingPiece = board[fromRow][fromCol];
+
+        if (movingPiece == null) {
+            throw new IllegalArgumentException("Please select a Piece");
+        }
+
+        if (nextPlayer != movingPiece.color) {
+            throw new IllegalArgumentException("Wrong piece color - next player is " + nextPlayer);
+        }
+
+        board[toRow][toCol] = movingPiece;
         board[fromRow][fromCol] = null;
 
-        return board[toRow][toCol];
+        if (nextPlayer == Piece.Color.WHITE) {
+            nextPlayer = Piece.Color.BLACK;
+        } else {
+            nextPlayer = Piece.Color.WHITE;
+        }
+
+        return movingPiece;
     }
 
     @Override
@@ -52,7 +68,7 @@ public class Board {
         result += String.format("Black Score : %1.2f \n\n", getScore(Piece.Color.BLACK));
         for (int row = 0; row < 8; row++) {
 
-            result = result + (8-row) + " ";
+            result = result + (8 - row) + " ";
 
             for (int col = 0; col < 8; col++) {
                 if (board[row][col] == null) {
@@ -71,11 +87,11 @@ public class Board {
         return result;
     }
 
-    private double getScore(Piece.Color color){
+    private double getScore(Piece.Color color) {
         double score = 0;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if(board[i][j] != null && board[i][j].color == color && !(board[i][j] instanceof King) ){
+                if (board[i][j] != null && board[i][j].color == color && !(board[i][j] instanceof King)) {
                     score += board[i][j].getValue();
                 }
             }

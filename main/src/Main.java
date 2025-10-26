@@ -15,12 +15,16 @@ void main() {
 
     var board = new Board();
 
-    while(true) {
+    while (true) {
         IO.println(board);
 
         String from = IO.readln("Next move from: ");
         String to = IO.readln("Next move to: ");
-        var movedPiece = board.move(from, to);
-        System.out.println("You moved the following : " + movedPiece);
+        try {
+            var movedPiece = board.move(from, to);
+            System.out.println("You moved the following : " + movedPiece);
+        } catch (IllegalArgumentException exception) {
+            System.err.println(exception.getMessage());
+        }
     }
 }
