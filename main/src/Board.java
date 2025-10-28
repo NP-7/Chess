@@ -33,6 +33,9 @@ public class Board {
      * @return the piece just moved
      */
     public Piece move(String from, String to) {
+        from = from.toUpperCase();
+        to = to.toUpperCase();
+
         int fromCol = from.charAt(0) - 'A';
         int fromRow = 8 - (from.charAt(1) - '0');
 
@@ -40,13 +43,18 @@ public class Board {
         int toRow = 8 - (to.charAt(1) - '0');
 
         var movingPiece = board[fromRow][fromCol];
+        var destinationPiece = board[toRow][toCol];
 
         if (movingPiece == null) {
             throw new IllegalArgumentException("Please select a Piece");
         }
 
+        if (destinationPiece != null && destinationPiece.color == movingPiece.color) {
+            throw new IllegalArgumentException("You cannot eat yourself");
+        }
+
         if (nextPlayer != movingPiece.color) {
-            throw new IllegalArgumentException("Wrong piece color - next player is " + nextPlayer);
+            throw new IllegalArgumentException("Please select the correct piece color - next player is " + nextPlayer);
         }
 
         board[toRow][toCol] = movingPiece;
