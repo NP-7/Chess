@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>AI Games</title>
+        <link rel="stylesheet" th:href="@{/styles.css}">
+    </head>
+    <body>
+        <h1 th:text="'Next player : ' + ${name}"/>
+
+
+        <form th:action="@{/nextMovement}" method="post">
+            <input type="text" name="nextMovement" placeholder="Next movement - e.g. A2 A3" required>
+            <button type="submit">Move</button>
+        </form>
+
+    </body>
+</html>

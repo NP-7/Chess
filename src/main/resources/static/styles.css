@@ -1,0 +1,57 @@
+/* styles.css */
+
+/* Reset some default spacing */
+body, h1, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page background and font */
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #cce0ff, #e6f2ff);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header text */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-right: 0.5rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #357ab8;
+}
