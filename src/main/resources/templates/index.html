@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>AI Games</title>
-        <link rel="stylesheet" th:href="@{/styles.css}">
-    </head>
-    <body>
-        <h1 th:text="'Next player : ' + ${name}"/>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Games</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <h1 th:text="'Next player : ' + ${nextPlayer}"/>
+
+    <div class="error" th:text="${error}"/>
+
+    <!-- Chessboard -->
+    <table class="chessboard">
+        <tbody>
+        <!-- Loop through rows of the matrix -->
+        <tr th:each="row, rowStat : ${board}">
+
+            <!-- Loop through columns of each row -->
+            <td th:each="cell, cellStat : ${row}"
+                th:class="${(rowStat.index + cellStat.index) % 2 == 0} ? 'white' : 'black'"
+                th:text="${cell}"></td>
+        </tr>
+        </tbody>
+    </table>
 
 
-        <form th:action="@{/nextMovement}" method="post">
-            <input type="text" name="nextMovement" placeholder="Next movement - e.g. A2 A3" required>
-            <button type="submit">Move</button>
-        </form>
+    <form th:action="@{/nextMovement}" method="post">
+        <input type="text" name="nextMovement" placeholder="Next movement - e.g. A2 A3" required>
+        <button type="submit">Move</button>
+    </form>
 
-    </body>
+</body>
 </html>

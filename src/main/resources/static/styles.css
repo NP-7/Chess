@@ -24,6 +24,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.error {
+    font-size: 2rem;
+    color: red;
+}
+
 /* Form styling */
 form {
     background-color: white;
@@ -54,4 +59,28 @@ button {
 
 button:hover {
     background-color: #357ab8;
+}
+
+
+/* Styling for the chessboard */
+.chessboard {
+    font-size: 3rem;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.chessboard td {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: center;
+    color: white;
+}
+
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
 }

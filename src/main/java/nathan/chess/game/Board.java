@@ -1,5 +1,7 @@
 package nathan.chess.game;
 
+import org.jspecify.annotations.Nullable;
+
 public class Board {
 
     private Piece[][] board = new Piece[8][8];
@@ -66,7 +68,6 @@ public class Board {
     }
 
 
-
     @Override
     public String toString() {
         String result = "Next player : " + nextPlayer + "\n\n";
@@ -110,5 +111,12 @@ public class Board {
         return  board[position.row][position.col];
     }
 
+    public Piece getPieceAt(int row, int col){
+        return  board[row][col];
+    }
 
+
+    public Piece.Color getNextPlayer() {
+        return nextPlayer;
+    }
 }
