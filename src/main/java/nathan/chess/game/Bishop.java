@@ -1,5 +1,7 @@
 package nathan.chess.game;
 
+import java.util.List;
+
 public class Bishop extends Piece{
     public Bishop(Color color) {
         super(color);
@@ -8,6 +10,11 @@ public class Bishop extends Piece{
     @Override
     public double getValue() {
         return 3.35;
+    }
+
+    @Override
+    public List<Position> getPossiblePositions(Position position) {
+        return List.of();
     }
 
     @Override

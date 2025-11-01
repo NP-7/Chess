@@ -1,3 +1,7 @@
+package nathan.chess.game;
+
+import java.util.List;
+
 public class Knight extends Piece{
     public Knight(Color color) {
         super(color);
@@ -6,6 +10,11 @@ public class Knight extends Piece{
     @Override
     public double getValue() {
         return 3;
+    }
+
+    @Override
+    public List<Position> getPossiblePositions(Position position) {
+        return List.of();
     }
 
     @Override

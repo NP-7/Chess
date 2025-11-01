@@ -1,5 +1,9 @@
+import nathan.chess.game.Board;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+import nathan.chess.game.Pawn;
+import nathan.chess.game.Piece;
+import nathan.chess.game.Position;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
     //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -9,8 +13,15 @@ void main() {
     int i = 5;
 
 
-//    var x = new King(Piece.Color.BLACK);
+//    var x = new nathan.chess.game.King(nathan.chess.game.Piece.Color.BLACK);
 //    System.out.println(x);
+
+
+    var pawn = new Pawn(Piece.Color.BLACK);
+    //var position = new Position(4,4);
+    var position =  Position.from("A2");
+    List<Position> possiblePositions = pawn.getPossiblePositions(position);
+    System.out.println(possiblePositions);
 
 
     var board = new Board();

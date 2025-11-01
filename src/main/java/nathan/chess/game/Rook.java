@@ -1,3 +1,7 @@
+package nathan.chess.game;
+
+import java.util.List;
+
 public class Rook extends Piece{
     public Rook(Color color) {
         super(color);
@@ -6,6 +10,11 @@ public class Rook extends Piece{
     @Override
     public double getValue() {
         return 5.3;
+    }
+
+    @Override
+    public List<Position> getPossiblePositions(Position position) {
+        return List.of();
     }
 
     @Override

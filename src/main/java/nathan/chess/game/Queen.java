@@ -1,3 +1,7 @@
+package nathan.chess.game;
+
+import java.util.List;
+
 public class Queen extends Piece{
     public Queen(Color color) {
         super(color);
@@ -6,6 +10,11 @@ public class Queen extends Piece{
     @Override
     public double getValue() {
         return 9.5;
+    }
+
+    @Override
+    public List<Position> getPossiblePositions(Position position) {
+        return List.of();
     }
 
     @Override

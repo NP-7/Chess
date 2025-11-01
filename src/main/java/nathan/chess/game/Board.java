@@ -1,3 +1,5 @@
+package nathan.chess.game;
+
 public class Board {
 
     private Piece[][] board = new Piece[8][8];
@@ -33,20 +35,14 @@ public class Board {
      * @return the piece just moved
      */
     public Piece move(String from, String to) {
-        from = from.toUpperCase();
-        to = to.toUpperCase();
+        Position fromPos = Position.from(from);
+        Position toPos = Position.from(to);
 
-        int fromCol = from.charAt(0) - 'A';
-        int fromRow = 8 - (from.charAt(1) - '0');
-
-        int toCol = to.charAt(0) - 'A';
-        int toRow = 8 - (to.charAt(1) - '0');
-
-        var movingPiece = board[fromRow][fromCol];
-        var destinationPiece = board[toRow][toCol];
+        var movingPiece = getPieceAt(fromPos);
+        var destinationPiece = board[toPos.row][toPos.col];
 
         if (movingPiece == null) {
-            throw new IllegalArgumentException("Please select a Piece");
+            throw new IllegalArgumentException("Please select a nathan.chess.game.Piece");
         }
 
         if (destinationPiece != null && destinationPiece.color == movingPiece.color) {
@@ -57,8 +53,8 @@ public class Board {
             throw new IllegalArgumentException("Please select the correct piece color - next player is " + nextPlayer);
         }
 
-        board[toRow][toCol] = movingPiece;
-        board[fromRow][fromCol] = null;
+        board[toPos.row][toPos.col] = movingPiece;
+        board[fromPos.row][fromPos.col] = null;
 
         if (nextPlayer == Piece.Color.WHITE) {
             nextPlayer = Piece.Color.BLACK;
@@ -68,6 +64,8 @@ public class Board {
 
         return movingPiece;
     }
+
+
 
     @Override
     public String toString() {
@@ -106,4 +104,11 @@ public class Board {
         }
         return score;
     }
+
+
+    private Piece getPieceAt(Position position){
+        return  board[position.row][position.col];
+    }
+
+
 }
